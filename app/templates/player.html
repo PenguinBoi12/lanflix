@@ -1,0 +1,19 @@
+{% extends 'layout.html' %}
+
+{% block title %}{{ media_id }}{% endblock %}
+
+{% block content %}
+<a class="btn btn-link" href="/">home</a>
+
+<video id="player" class="video-js" playsinline controls width="100%" >
+  <source src="{{ url_for('media', media_id=media_id) }}" type="video/mp4" />
+
+  {% for subtitle in subtitles %}
+    <p> {{ subtitle }}</p>
+    <track
+      src="{{ url_for('subtitle', media_id=media_id, subtitle=subtitle|urlencode) }}"
+      kind="captions"
+      label="{{ subtitle }}">
+  {% endfor %}
+</video>
+{% endblock %}

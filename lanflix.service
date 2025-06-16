@@ -1,0 +1,17 @@
+[Unit]
+Description=Simple, lightweight media server that lets you stream your local video files directly over your local network.
+
+[Service]
+# If you want to set a custom path
+# Environment="LANFLIX_DIR=/my/custom/path"
+
+# change <username> to your username
+WorkingDirectory=/home/<username>/.local/share/lanflix/app
+
+ExecStart=/usr/bin/env gunicorn -w 1 -b 0.0.0.0:8012 'app:app'
+
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
