@@ -1,0 +1,38 @@
+.card-poster {
+	width: 100%;
+	height: 430px;
+
+	flex: 1 1 auto;
+}
+
+.card-poster img {
+	width: 100%;
+	height: inherit;
+}
+
+.card-overlay {
+	display: none;
+}
+
+.card-overlay img {
+	width: 70%;
+	margin: 0 auto;
+
+	opacity: 70%;
+}
+
+.card:hover {
+	border: 1px solid #fff;
+}
+
+.card:hover .card-overlay {
+	display: flex;
+
+	position: absolute;
+	top: 0;
+
+	width: 100%;
+	height: inherit;
+
+	background-color: #ffffff4d;
+}

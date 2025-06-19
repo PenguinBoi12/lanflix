@@ -3,16 +3,21 @@
 {% block title %}My Movies{% endblock %}
 
 {% block content %}
-<div class="container text-center">
+<div class="container text-center" style="min-width: 20rem;">
   <div class="row">
     {% for movie in movies %}
       {% set url = url_for('play', media_id=movie) %}
 
-      <div class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex justify-content-center">
+      <div class="col-12 col-sm-6 col-md-6 col-lg-4 col-xl-3 d-flex justify-content-center">
         <div class="card my-3 pointer w-100" style="max-width: 18rem; cursor: pointer;" onclick="window.location='{{ url }}'">
+          <div class="card-poster">
+            <img src="{{ url_for('poster', media_id=movie) }}" alt="Poster"/>
 
-          <!-- <img src="{{ url_for('static', filename='card-placeholder.jpg') }}" class="card-img-top " alt="poster"> -->
-          <img src="{{ url_for('poster', media_id=movie) }}" alt="Poster"/>
+            <div class="card-overlay">
+              <img src="{{ url_for('static', filename='play.svg') }}">
+            </div>
+          </div>
+
 
           <div class="card-body">
             <b class="card-text">{{ movie }}</b>
